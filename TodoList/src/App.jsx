@@ -8,7 +8,7 @@ import List from './components/List';
 const MockData=[{
   id:0,
   isDone:false,
-  content:'빨래하기',
+  content:'요리하기',
   date: new Date().getTime(),
 },{
   id:1,
