@@ -1,6 +1,5 @@
 import './TodoItem.css'
-const TodoItem=({id,isDone,content,date,onUpdate})=>{
-
+const TodoItem=({id,isDone,content,date,onUpdate,del})=>{
 
     return(
         <div className='TodoItem'>
@@ -8,7 +7,7 @@ const TodoItem=({id,isDone,content,date,onUpdate})=>{
             checked={isDone} type="checkbox"/>
             <div className='content'>{content}</div>
             <div className='date'>{new Date(date).toLocaleDateString()}</div>
-            <button>삭제</button>
+            <button onClick={()=>del(id)}>삭제</button>
 
         </div>
     )

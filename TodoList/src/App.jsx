@@ -47,7 +47,10 @@ function App() {
       }
       return todo
     }))
+  };
 
+  const del=(targetId)=>{
+    setTodos(todos.filter((todo)=>todo.id !== targetId));
   }
 
   return (
@@ -55,7 +58,8 @@ function App() {
         <Header />
         <Editor onCreate={onCreate}/>
         <List todos={todos}
-        onUpdate={onUpdate}/>
+        onUpdate={onUpdate}
+        del ={del}/>
     </div>
   )
 }
