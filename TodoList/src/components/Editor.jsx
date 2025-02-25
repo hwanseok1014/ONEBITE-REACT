@@ -1,8 +1,13 @@
 import './Editor.css'
 
-import { useState,useRef } from 'react';
+import { useState,useRef, useContext } from 'react';
+import {TodoDispatchContex} from '../App';
 
-const Editor = ({onCreate})=>{
+
+
+const Editor = ()=>{
+const {onCreate} =useContext(TodoDispatchContex);
+
 const [content, setcontent] =useState('');
 const contentRef =useRef(); //✅ 입력 포커스 제어할 때 사용 기억하기
     

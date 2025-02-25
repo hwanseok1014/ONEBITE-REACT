@@ -1,5 +1,9 @@
 import './TodoItem.css'
-const TodoItem=({id,isDone,content,date,onUpdate,onDelete})=>{
+import { useContext } from 'react';
+import { TodoDispatchContex } from '../App';
+
+const TodoItem=({id,isDone,content,date})=>{
+    const {onUpdate,onDelete}=useContext(TodoDispatchContex);
 
     return(
         <div className='TodoItem'>

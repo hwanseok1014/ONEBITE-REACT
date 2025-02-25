@@ -5,6 +5,8 @@ import Header from './components/Header';
 import Editor from './components/Editor';
 import List from './components/List';
 
+import { createContext } from 'react';
+
 const MockData=[{
   id:0,
   isDone:false,
@@ -35,8 +37,10 @@ const reducer = (state,action)=>{
     default:
       return state;
   };
-
 }
+
+export const TodoStateContext = createContext();
+export const TodoDispatchContex = createContext(); 
 
 function App() {  
   const [todos,dispatch] =useReducer(reducer,MockData);
@@ -69,11 +73,14 @@ function App() {
 
   return (
     <div className='App'>
-        <Header />
-        <Editor onCreate={onCreate}/>
-        <List todos={todos}
-        onUpdate={onUpdate}
-        onDelete ={onDelete}/>
+      <Header />
+      <TodoStateContext.Provider value={todos}>
+        <TodoDispatchContex value={{onCreate,onUpdate,onDelete}}>
+          <Editor/>
+          <List/>
+        </TodoDispatchContex>
+      </TodoStateContext.Provider>
+
     </div>
   )
 }
